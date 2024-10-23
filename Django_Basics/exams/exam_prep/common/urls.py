@@ -3,5 +3,5 @@ from common import views
 
 
 urlpatterns = [
-    path('', views.home_page, name='home'),
+    path('', views.HomePageView.as_view(), name='home'),
 ]

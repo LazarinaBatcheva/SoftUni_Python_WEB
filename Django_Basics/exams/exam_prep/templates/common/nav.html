@@ -1,12 +1,16 @@
+{% load get_profile %}
 {% load static %}
 
 <nav>
     <img src="{% static 'images/headphones.png' %}" alt="headphones"/>
-    <a href="#">Home</a>
+    <a href="{% url 'home' %}">Home</a>
     <ul></ul>
-    <ul>
-        <!--Only for user with created profile-->
-        <li><a href="#">Create Album</a></li>
-        <li><a href="#">Profile</a></li>
-    </ul>
+    {% get_profile as profile %}
+    {% if profile %}
+        <ul>
+            <!--Only for user with created profile-->
+            <li><a href="{% url 'album-add' %}">Create Album</a></li>
+            <li><a href="{% url 'profile-details' %}">Profile</a></li>
+        </ul>
+    {% endif %}
 </nav>

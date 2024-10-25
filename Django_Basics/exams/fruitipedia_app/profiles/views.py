@@ -1,7 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
-from fruitipedia_app.utils import get_profile_obj
-from profiles.forms import ProfileCreateForm, ProfileEditForm, ProfileDeleteForm
+from profiles.forms import ProfileCreateForm, ProfileEditForm
 from profiles.mixins import ProfileObjectMixin
 from profiles.models import Profile
 

@@ -3,8 +3,8 @@ from profiles import views
 
 
 urlpatterns = [
-    path('create/', views.profile_create_page, name='profile-create'),
-    path('details/', views.profile_details_page, name='profile-details'),
-    path('edit/', views.profile_edit_page, name='profile-edit'),
-    path('delete/', views.profile_delete_page, name='profile-delete'),
+    path('create/', views.ProfileCreateView.as_view(), name='profile-create'),
+    path('details/', views.ProfileDetailsView.as_view(), name='profile-details'),
+    path('edit/', views.ProfileEditView.as_view(), name='profile-edit'),
+    path('delete/', views.ProfileDeleteView.as_view(), name='profile-delete'),
 ]

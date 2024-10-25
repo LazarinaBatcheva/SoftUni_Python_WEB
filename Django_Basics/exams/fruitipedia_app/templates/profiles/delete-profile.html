@@ -6,7 +6,11 @@
             <h1>Are you sure you want to delete your profile?</h1>
 
             <!-- Delete Profile Form -->
-            <form id='delete' class="register-form">
+            <form id='delete' class="register-form" method="post">
+                
+                {% csrf_token %}
+                {{ form }}
+                
                 <!-- Confirm Button -->
                 <button type="submit">Yes</button>
 

@@ -1,17 +1,30 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from fruitipedia_app.utils import get_profile_obj
+from profiles.forms import ProfileCreateForm, ProfileEditForm, ProfileDeleteForm
+from profiles.mixins import ProfileObjectMixin
+from profiles.models import Profile
 
 
-def profile_create_page(request):
-    pass
+class ProfileCreateView(CreateView):
+    model = Profile
+    form_class = ProfileCreateForm
+    template_name = 'profiles/create-profile.html'
+    success_url = reverse_lazy('dashboard')
 
 
-def profile_edit_page(request):
-    pass
+class ProfileEditView(ProfileObjectMixin, UpdateView):
+    model = Profile
+    form_class = ProfileEditForm
+    template_name = 'profiles/edit-profile.html'
+    success_url = reverse_lazy('profile-details')
 
 
-def profile_delete_page(request):
-    pass
+class ProfileDeleteView(ProfileObjectMixin, DeleteView):
+    template_name = 'profiles/delete-profile.html'
+    success_url = reverse_lazy('index-page')
 
 
-def profile_details_page(request):
-    pass
+class ProfileDetailsView(ProfileObjectMixin, DetailView):
+    model = Profile
+    template_name = 'profiles/details-profile.html'

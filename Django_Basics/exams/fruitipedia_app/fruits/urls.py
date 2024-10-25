@@ -3,10 +3,10 @@ from fruits import views
 
 
 urlpatterns = [
-    path('create/', views.fruit_add_page, name='fruit-add'),
+    path('create/', views.FruitAddView.as_view(), name='fruit-add'),
     path('<int:fruit_id>', include([
-        path('details/', views.fruit_details_page, name='fruit-details'),
-        path('edit/', views.fruit_edit_page, name='fruit-edit'),
-        path('delete/', views.fruit_delete_page, name='fruit-delete'),
+        path('details/', views.FruitDetailsView.as_view(), name='fruit-details'),
+        path('edit/', views.FruitEditView.as_view(), name='fruit-edit'),
+        path('delete/', views.FruitDeleteView.as_view(), name='fruit-delete'),
     ])),
 ]

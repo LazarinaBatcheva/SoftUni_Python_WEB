@@ -3,6 +3,6 @@ from common import views
 
 
 urlpatterns = [
-    path('', views.index_page, name='index-page'),
-    path('dashboard/', views.dashboard_page, name='dashboard')
+    path('', views.IndexPageView.as_view(), name='index-page'),
+    path('dashboard/', views.DashboardView.as_view(), name='dashboard')
 ]

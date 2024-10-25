@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def index_page(request):
+    pass
+
+
+def dashboard_page(request):
+    pass

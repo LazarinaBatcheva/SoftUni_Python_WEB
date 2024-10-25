@@ -1,3 +1,17 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def profile_create_page(request):
+    pass
+
+
+def profile_edit_page(request):
+    pass
+
+
+def profile_delete_page(request):
+    pass
+
+
+def profile_details_page(request):
+    pass

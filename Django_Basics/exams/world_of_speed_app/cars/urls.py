@@ -4,11 +4,11 @@ from cars import views
 
 
 urlpatterns = [
-    path('catalogue/', views.catalogue_page, name='catalogue-page'),
-    path('create/', views.add_car, name='car-add'),
+    path('catalogue/', views.CataloguePageView.as_view(), name='catalogue-page'),
+    path('create/', views.CarAddView.as_view(), name='car-add'),
     path('<int:id>/', include([
-        path('details/', views.car_details_page, name='car-details'),
-        path('edit/', views.edit_car, name='car-edit'),
-        path('delete/', views.delete_car, name='car-delete'),
+        path('details/', views.CarDetailsView.as_view(), name='car-details'),
+        path('edit/', views.CarEditView.as_view(), name='car-edit'),
+        path('delete/', views.CarDeleteView.as_view(), name='car-delete'),
     ]))
 ]

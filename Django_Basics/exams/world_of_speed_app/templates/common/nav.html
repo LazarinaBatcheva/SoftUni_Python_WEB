@@ -1,14 +1,17 @@
+{% load get_profile %}
+
 <h1>
     <a class="index-navigation" href="{% url 'index-page' %}"
     ><span>World of Speed</span></a
     >
 </h1>
 <nav>
-    <!-- if the user has not created a profile -->
-    <a href="{% url 'profile-add' %}">Create Profile</a>
-
-    <!-- if the user has created a profile -->
-    <a href="{% url 'catalogue-page' %}">Catalogue</a>
-    <a href="{% url 'car-add' %}">Create Car</a>
-    <a href="{% url 'profile-details' %}">Profile</a>
+    {% get_profile as profile %}
+    {% if profile %}
+        <a href="{% url 'catalogue-page' %}">Catalogue</a>
+        <a href="{% url 'car-add' %}">Create Car</a>
+        <a href="{% url 'profile-details' %}">Profile</a>
+    {% else %}
+        <a href="{% url 'profile-add' %}">Create Profile</a>
+    {% endif %}
 </nav>

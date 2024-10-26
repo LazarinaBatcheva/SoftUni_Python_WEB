@@ -3,5 +3,5 @@ from common import views
 
 
 urlpatterns = [
-    path('', views.index_page, name='index-page'),
+    path('', views.IndexPageView.as_view(), name='index-page'),
 ]
